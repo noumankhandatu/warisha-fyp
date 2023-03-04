@@ -1,5 +1,10 @@
-mongodb pass
-warisha
+test api key of open ai = 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
 
-theme color
-#27c3e3
+
+
+testing email 
+
+terry@gmail.com
+terryishereOK051@
+
+

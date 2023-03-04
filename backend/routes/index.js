@@ -2,7 +2,7 @@ const { Router } = require("express");
 const { Configuration, OpenAIApi } = require("openai");
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
-const { jwtToken } = require("../envkey");
+const { jwtToken, openAI_KEY } = require("../envkey");
 // schema imported here
 const AuthModel = require("../model/index");
 const imageCollection = require("../model/imageCollection");
@@ -77,7 +77,7 @@ router.post("/signin", async (req, res) => {
 
 router.post("/image/generator", async (req, res) => {
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: openAI_KEY,
   });
   const openai = new OpenAIApi(configuration);
   const response = await openai.createImage({
@@ -85,7 +85,6 @@ router.post("/image/generator", async (req, res) => {
     n: 4,
     size: "256x256",
   });
-  console.log(response, "my response is here");
   res.status(200).json({ result: response.data.data });
 });
 

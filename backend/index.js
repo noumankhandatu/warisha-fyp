@@ -5,6 +5,9 @@ const app = express();
 const cors = require("cors");
 const { key } = require("./envkey");
 
+// Set strictQuery to false to remove the deprecation warning
+mongoose.set("strictQuery", false);
+
 // our schema imported here
 app.use(cors());
 

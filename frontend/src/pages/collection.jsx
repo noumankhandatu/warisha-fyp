@@ -5,9 +5,14 @@ import Spinner from "../components/Spinner";
 const CollectionPage = () => {
   const [fetchData, setFetchData] = React.useState([]);
   const handleCollections = async () => {
-    const response = await baseUrl.get("/getCollection").catch((err) => {
-      console.log("Fetch api error");
-    });
+    const token = localStorage.getItem("jwtToken");
+    const headers = { Authorization: `Bearer ${token}` };
+    const response = await baseUrl
+      .get("/getCollection", { headers })
+      .catch((err) => {
+        console.log("Fetch api error");
+      });
+
     if (response && response) {
       setFetchData(response.data);
     }
@@ -16,7 +21,7 @@ const CollectionPage = () => {
     handleCollections();
   }, []);
   return (
-    <div style={{ height: "100vh" }}>
+    <div>
       <p className="text-white text-4xl">
         <b>Collections</b>
       </p>

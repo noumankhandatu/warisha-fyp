@@ -18,23 +18,22 @@ const GeneratorPage = () => {
   const [inputVal, setInputVal] = useState("");
   const [img, setImg] = useState("");
   const [spin, setSpin] = useState(false);
-
   const handleChange = async (e) => {
     const value = e.target.value;
     setInputVal(value);
   };
-
   const handleCollections = async () => {
     const imageURL = JSON.stringify(img);
     const response = await baseUrl
       .post("/imageCollection", {
-        name: inputVal.input,
+        name: inputVal,
         imageUrls: imageURL,
       })
       .catch((err) => {
         console.log(err);
       });
     if (response) {
+      console.log(response);
       alert(response.data);
     }
   };
@@ -156,7 +155,7 @@ const GeneratorPage = () => {
           {/* mapped */}
           {img ? (
             <div className="imageBox">
-              <div className="gridTwo">
+              <div className="gridFour">
                 {img.map((items, id) => {
                   return <img key={id} src={items.url} alt="" />;
                 })}

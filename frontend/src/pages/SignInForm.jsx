@@ -41,7 +41,8 @@ const SignInForm = () => {
 
   return (
     <div className="formCenter">
-      <form className="formFields" >
+      <div style={{ height: "70px" }}></div>
+      <form className="formFields">
         <div className="formField">
           <label className="formFieldLabel" htmlFor="email">
             E-Mail Address
@@ -78,17 +79,8 @@ const SignInForm = () => {
             Create an account
           </Link>
         </div>
-
-        <div className="socialMediaButtons">
-          <div className="facebookButton">
-            <FacebookLoginButton onClick={() => alert("Hello")} />
-          </div>
-
-          <div className="instagramButton">
-            <InstagramLoginButton onClick={() => alert("Hello")} />
-          </div>
-        </div>
       </form>
+      <div style={{ height: "100px" }}></div>
     </div>
   );
 };

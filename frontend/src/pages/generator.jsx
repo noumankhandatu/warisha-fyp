@@ -22,21 +22,6 @@ const GeneratorPage = () => {
     const value = e.target.value;
     setInputVal(value);
   };
-  const handleCollections = async () => {
-    const imageURL = JSON.stringify(img);
-    const response = await baseUrl
-      .post("/imageCollection", {
-        name: inputVal,
-        imageUrls: imageURL,
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    if (response) {
-      console.log(response);
-      alert(response.data);
-    }
-  };
 
   // speech started
   const {
@@ -79,6 +64,26 @@ const GeneratorPage = () => {
       setSpin(false);
     }
   };
+
+  const handleCollections = async () => {
+    const imageURL = JSON.stringify(img);
+    const response = await baseUrl
+      .post("/imageCollection", {
+        name:
+          lastItem !== undefined && lastIndex !== ""
+            ? lastItem || lastIndex[0]
+            : inputVal,
+        imageUrls: imageURL,
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    if (response) {
+      console.log(response);
+      alert(response.data);
+    }
+  };
+
   return (
     <div>
       <div className="flex items-center  justify-center gap-12 mb-20 ">
@@ -117,7 +122,7 @@ const GeneratorPage = () => {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Button
               onClick={handleClick}
-              sx={{ width: "85vh" }}
+              sx={{ width: "82vh" }}
               variant="contained"
               style={{ backgroundColor: "rgb(39, 195, 227)" }}
             >
@@ -129,7 +134,7 @@ const GeneratorPage = () => {
                 isRecording ? stopSpeechToText() : startSpeechToText();
               }}
               variant="contained"
-              color="secondary"
+              sx={{ backgroundColor: "#02091E" }}
             >
               {isRecording ? (
                 <KeyboardVoiceIcon
@@ -164,7 +169,8 @@ const GeneratorPage = () => {
           ) : (
             <div style={{ position: "relative" }}>
               <div className="center">{spin ? <Spinner /> : null}</div>
-              <img className="logoImage" src={imageBox} alt="" />
+              {/* <img className="logoImage" src={imageBox} alt="" /> */}
+              <div className="logoImage"></div>
             </div>
           )}
           {img ? (

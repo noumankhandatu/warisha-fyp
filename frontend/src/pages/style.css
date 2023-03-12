@@ -6,6 +6,7 @@
 .logoImage {
   width: 600px;
   padding: 30px;
+  margin-top: 100px;
 }
 .center {
   position: absolute;
@@ -17,7 +18,7 @@
   margin-top: 30px;
   padding: 10px;
   background-size: cover;
-  background-image: url("../assets/seoncdary.png");
+  /* background-image: url("../assets/seoncdary.png"); */
 }
 .appAside {
   width: 50%;

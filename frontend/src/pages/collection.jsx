@@ -21,7 +21,11 @@ const CollectionPage = () => {
     handleCollections();
   }, []);
   return (
-    <div>
+    <div
+      className={`${
+        fetchData && fetchData.length > 2 ? " h-full" : "h-screen"
+      }`}
+    >
       <p className="text-white text-4xl">
         <b>Collections</b>
       </p>

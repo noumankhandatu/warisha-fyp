@@ -96,16 +96,16 @@ const GeneratorPage = () => {
         <div>
           <div className="formField">
             {/* speech start */}
-            <ul className="text-white text-3xl text-center mt-8 mb-8">
-              {lastItem || lastIndex[0]}
 
-              {interimResult && <li>{interimResult} </li>}
-            </ul>
             {/* speech end */}
 
             {/* we have to find the last index and put it in input then in request */}
             <TextField
-              value={inputVal}
+              value={
+                lastItem !== undefined && lastIndex !== ""
+                  ? lastItem || lastIndex[0]
+                  : inputVal
+              }
               label="Enter your text"
               variant="filled"
               style={{
@@ -197,4 +197,12 @@ export default GeneratorPage;
                   {result.transcript}
                 </li>
               ))} */
+}
+
+{
+  /* <ul className="text-white text-3xl text-center mt-8 mb-8">
+              {lastItem || lastIndex[0]}
+
+              {interimResult && <li>{interimResult} </li>}
+            </ul> */
 }

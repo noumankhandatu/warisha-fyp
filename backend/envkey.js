@@ -1,5 +1,5 @@
 module.exports = {
   key: "mongodb+srv://warisha:warisha@cluster0.jccsdsz.mongodb.net/?retryWrites=true&w=majority",
   jwtToken: "writeatestingtoken",
-  openAI_KEY: "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",
+  openAI_KEY: "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",
 };
